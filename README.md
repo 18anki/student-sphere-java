@@ -1,208 +1,241 @@
-# 🎓 StudentsSphere
+# 🎓 Student Sphere
 
-StudentsSphere is a Spring Boot based student management system designed to manage student records, attendance, course workflows, and academic processes efficiently.
+## Overview
 
-The application provides backend functionalities using REST APIs, MySQL database integration, and scalable architecture for academic management systems.
+Student Sphere is a college-exclusive academic collaboration platform designed to help students connect, learn, share knowledge, and track their academic progress within their institution.
 
----
+Unlike traditional social media platforms, Student Sphere focuses entirely on educational growth by providing a secure environment where students can participate in academic communities, share notes, conduct study sessions, and monitor their learning journey.
 
-## 🚀 Features
-
-- Student Management
-- Attendance Management
-- Course & Subject Management
-- Academic Workflow Handling
-- REST API Integration
-- Database Management using MySQL
-- Docker-based Local Setup
-- Profile-based Configuration
-- CRUD Operations
-- Dynamic Data Seeding
+The platform verifies users through college information and restricts access to students belonging to the same institution, ensuring a trusted and relevant academic ecosystem.
 
 ---
 
-## 🛠️ Tech Stack
+## Problem Statement
 
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- MySQL
-- H2 Database
-- Docker
-- Maven
-- REST APIs
-- HikariCP
-- Git & GitHub
+Students often use multiple applications for different academic needs such as:
+
+* Sharing notes
+* Asking academic questions
+* Organizing study groups
+* Attending online study sessions
+* Tracking study progress
+
+Student Sphere brings all these features together into a single platform built specifically for students.
 
 ---
 
-## 📡 Sample APIs
+## Key Features
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /students | Fetch all students |
-| POST | /students | Add new student |
-| PUT | /students/{id} | Update student |
-| DELETE | /students/{id} | Delete student |
+### 🔐 Authentication & Profile Verification
 
----
+* Secure login and registration
+* College-based access control
+* Profile creation with:
 
-# ⚙️ Local MySQL Setup
-
-This project defaults to H2 for development. To run the application against MySQL locally, follow these steps.
-
----
-
-## 📋 Prerequisites
-
-- Docker (for local MySQL) or an existing MySQL server
-- Java 17
-- Maven
+  * Full Name
+  * College Name
+  * Student ID Card Photo
+  * College Email Address
+  * Personal Email Address
+* Access restricted to students belonging to the same institution
 
 ---
 
-## 1️⃣ Start MySQL with Docker Compose
+### 👥 Community Module
 
-From the project root run:
+Students can create and participate in academic communities within their college.
 
-```powershell
-# Start MySQL container in background
-docker-compose up -d
-```
+#### Features
 
-This uses the provided `docker-compose.yml` which creates a MySQL 8.0 container with:
+* Create communities
+* Join communities
+* Invite students to communities
+* Post academic discussions
+* Ask study-related questions
+* Answer doubts and provide solutions
+* Share educational images and diagrams
+* Text-based discussions
 
-- Database: `studentsphere`
-- User: `studentsphere_user`
-- Password: `studentsphere_pass`
-- Root Password: `rootpass`
+#### Restrictions
 
----
-
-## 2️⃣ Run the Spring Boot Application with MySQL Profile
-
-### Using Maven
-
-```powershell
-mvn spring-boot:run -Dspring-boot.run.profiles=mysql
-```
-
-### Using Packaged JAR
-
-```powershell
-mvn clean package
-java -jar target/student-sphere-0.0.1-SNAPSHOT.jar --spring.profiles.active=mysql
-```
-
-### Using Environment Variable (PowerShell)
-
-```powershell
-$env:SPRING_PROFILES_ACTIVE = 'mysql'
-mvn spring-boot:run
-```
+* No personal photo sharing
+* No non-academic content
+* College-only visibility
 
 ---
 
-## 3️⃣ Verify MySQL Connection
+### 📚 Uploads & Purchases
 
-Check application logs for:
+A dedicated knowledge-sharing marketplace where students can upload and monetize quality study material.
 
-- Hikari datasource logs
-- Hibernate DDL logs
+#### Features
 
-Connect to MySQL using:
+* Upload notes and study resources
+* Public sharing within the college
+* Sell premium notes and PDFs
+* Set custom pricing for notes
+* Preview notes before purchase
+* Purchase notes uploaded by other students
 
-| Property | Value |
-|----------|-------|
-| Host | localhost |
-| Port | 3306 |
-| Database | studentsphere |
-| User | studentsphere_user |
-| Password | studentsphere_pass |
+#### Quality Control
 
----
-
-## 4️⃣ Seed Data
-
-The application contains a `DataSeeder` component which automatically inserts sample data such as:
-
-- States
-- Cities
-- Colleges
-
-on application startup if tables are empty.
-
-This ensures `collegeId=1` exists for testing signup functionality.
+* Topic-based note validation
+* Academic relevance checks
+* Removal of unnecessary content
 
 ---
 
-## 🗄️ Database Features
+### 🎥 Live Study Sessions
 
-- CRUD Operations using Spring Data JPA
-- Database Management using MySQL
-- ORM Mapping with Hibernate
-- Connection Pooling using HikariCP
-- Profile-based database configuration
+Students can collaborate through live study meetings and educational sessions.
 
----
+#### Features
 
-## ▶️ How to Run the Project
+* Schedule live study sessions
+* Topic-specific explanation classes
+* Invite participants
+* Record live sessions
+* Publish recordings for future access
+* Join approved study sessions
 
-### Clone Repository
+#### Rating System
 
-```bash
-git clone https://github.com/18anki/student-sphere-java.git
-```
-
-### Navigate to Project Folder
-
-```bash
-cd student-sphere-java
-```
-
-### Install Dependencies
-
-```bash
-mvn clean install
-```
-
-### Run Application
-
-```bash
-mvn spring-boot:run
-```
+* Session ratings visible to all users
+* Helps students discover high-quality educational content
+* Numerical ratings only
+* No text reviews
 
 ---
 
-## 📸 Screenshots
+### ⏱️ Study Hour Tracker
 
-(Add screenshots of your project here)
+A personal productivity system designed to help students monitor their study habits.
 
-Suggested screenshots:
-- Dashboard
-- Student Management Page
-- Attendance Module
-- Swagger API Documentation
-- Database Tables
+#### Features
+
+* Start and stop study timer
+* Daily study tracking
+* Weekly performance reports
+* Study trend visualization
+* Personal study notes
+
+#### Achievement System
+
+Students earn badges based on:
+
+* Study consistency
+* Milestones achieved
+* Improvement in study habits
+* Learning streaks
+
+Achievements can be shared within communities similar to fitness achievement sharing platforms.
 
 ---
 
-## 🔮 Future Enhancements
+### 📊 Student Dashboard
 
-- Spring Security Integration
-- JWT Authentication
-- Role-based Authorization
-- Swagger/OpenAPI Documentation
-- Docker Deployment
-- CI/CD Pipeline
-- Cloud Deployment (AWS)
+Each student receives a personalized dashboard containing:
+
+* Profile information
+* Purchased notes
+* Uploaded notes
+* Recorded study sessions
+* Earned badges
+* Study analytics
+* Weekly reports
+* Academic activity summary
 
 ---
 
-## 👩‍💻 Author
+### 💬 Direct Messaging
 
-### Ankita Yadav
+Students can communicate privately with other students.
 
-- GitHub: https://github.com/18anki
-- LinkedIn: https://www.linkedin.com/in/ankita-yadav-901127244
+#### Features
+
+* One-to-one messaging
+* Community-based communication
+* Secure conversations
+
+#### Restrictions
+
+* Messaging available only between eligible users within the platform ecosystem
+
+---
+
+## User Flow
+
+1. Student registers using college credentials
+2. Profile verification is completed
+3. Student joins the college network
+4. Student can:
+
+   * Join communities
+   * Upload notes
+   * Purchase study materials
+   * Attend live sessions
+   * Track study hours
+   * Earn achievements
+   * Connect with peers
+
+---
+
+## Future Enhancements
+
+* AI-powered note validation
+* AI-generated study summaries
+* College leaderboards
+* Placement preparation communities
+* Mock interview rooms
+* Study partner recommendations
+* Scholarship and internship notifications
+* Cross-college collaboration (optional)
+* Gamification and reward systems
+
+---
+
+## Tech Stack
+
+### Mobile Application
+
+* Flutter / React Native *(To be finalized)*
+
+### Backend
+
+* Java
+* Spring Boot
+* Spring Security
+* Spring Data JPA
+
+### Database
+
+* MySQL
+
+### Authentication
+
+* JWT Authentication
+
+### Storage
+
+* Cloud Storage for Notes and Recordings
+
+### Version Control
+
+* Git
+* GitHub
+
+---
+
+## Project Vision
+
+Student Sphere aims to become a dedicated academic ecosystem where students can learn, collaborate, teach, share knowledge, and grow together within a secure college-focused environment.
+
+The goal is to transform passive learning into collaborative learning by connecting students through communities, study resources, live sessions, and productivity tools.
+
+---
+
+## Author
+
+**Ankita Yadav**
+
+Software Engineer | Java & Spring Boot Developer
